@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.arguablysane.androidbootstrap.errorview.ErrorViewState" />
+
+        <variable
+            name="callback"
+            type="com.arguablysane.androidbootstrap.errorview.ErrorViewCallback" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgIcon"
+            visibleGone="@{ state.iconResourceId != null, default=false }"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:adjustViewBounds="true"
+            srcResId="@{ state.iconResourceId }"
+            tools:src="@tools:sample/backgrounds/scenic"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:gravity="center_horizontal"
+            android:textColor="?android:textColorSecondary"
+            visibleGone="@{ state.title != null, default=false }"
+            android:text="@{ state.title }"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            tools:text="Error Title"/>
+
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:maxLines="3"
+            android:gravity="center_horizontal"
+            visibleGone="@{ state.message != null, default=false }"
+            android:text="@{ state.message }"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            tools:text="@tools:sample/lorem/random"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ state.retryBtnLabel }"
+            visibleGone="@{ state.retryBtnLabel != null, default=false }"
+            android:layout_marginTop="8dp"
+            android:onClick="@{ () -> callback.onErrorViewRetryButtonClicked(state) }"
+            tools:text="Retry"/>
+
+    </LinearLayout>
+
+</layout>

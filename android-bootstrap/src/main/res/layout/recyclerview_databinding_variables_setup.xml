@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="Object" />
+
+        <variable
+            name="callback"
+            type="Object" />
+
+        <variable
+            name="recycledViewPool"
+            type="androidx.recyclerview.widget.RecyclerView.RecycledViewPool" />
+
+        <variable
+            name="lifeOwner"
+            type="androidx.lifecycle.LifecycleOwner" />
+
+    </data>
+</layout>
