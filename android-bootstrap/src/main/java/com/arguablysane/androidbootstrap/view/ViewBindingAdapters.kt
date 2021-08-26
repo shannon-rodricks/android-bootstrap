@@ -3,13 +3,18 @@ package com.arguablysane.androidbootstrap.view
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.annotation.AnimRes
 import androidx.databinding.BindingAdapter
 import com.arguablysane.androidbootstrap.animation.SimpleAnimationListener
 
 object ViewBindingAdapters {
 
     /**
-     * Change the visibility of a view, with animation
+     * Change the visibility of a view, with optional animations
+     * @param visibility The visibility to set. One of [View.VISIBLE], [View.INVISIBLE], [View.GONE]
+     * @param visibilityAnimationResIdVisible Optional animation to run when the visibility is set to [View.VISIBLE]
+     * @param visibilityAnimationResIdGone Optional animation to run when the visibility is set to [View.GONE]
+     * @param visibilityAnimationResIdInvisible Optional animation to run when the visibility is set to [View.INVISIBLE]
      */
     @JvmStatic
     @BindingAdapter(
@@ -23,9 +28,9 @@ object ViewBindingAdapters {
     )
     fun View.setVisibility(
         visibility: Int,
-        visibilityAnimationResIdVisible: Int? = null,
-        visibilityAnimationResIdGone: Int? = null,
-        visibilityAnimationResIdInvisible: Int? = null
+        @AnimRes visibilityAnimationResIdVisible: Int? = null,
+        @AnimRes visibilityAnimationResIdGone: Int? = null,
+        @AnimRes visibilityAnimationResIdInvisible: Int? = null
     ) {
         // If the value is already set, don't do anything
         if (this.visibility == visibility) {
@@ -97,6 +102,12 @@ object ViewBindingAdapters {
 
     }
 
+    /**
+     * Toggle animation between [View.VISIBLE] and [View.GONE]
+     * @param visible Whether the view should be visible or not
+     * @param animationVisible Optional animation resource id to run when [visible] is true
+     * @param animationGone Optional animation resource id to run when [visible] is false
+     */
     @JvmStatic
     @BindingAdapter(
         value = [
@@ -105,8 +116,8 @@ object ViewBindingAdapters {
     )
     fun View.setVisibleGone(
         visible: Boolean,
-        animationVisible: Int? = null,
-        animationGone: Int? = null
+        @AnimRes animationVisible: Int? = null,
+        @AnimRes animationGone: Int? = null
     ) {
         if (visible && visibility == View.VISIBLE) {
             return

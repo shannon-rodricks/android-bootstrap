@@ -14,6 +14,15 @@ import androidx.recyclerview.widget.RecyclerView
  */
 object RecyclerViewBindingAdapter {
 
+    /**
+     * @param list A list to display. Can also be a MutableLiveData<List>
+     * @param listCreateAdapter Whether or not to create an adapter. False if the screen wants to provide a custom adapter
+     * @param diffUtilItemCallback Optional, An instance of DiffUtil.ItemCallback. If one is not provided, a default one is created that compares the identifiers
+     * @param listCallback Callback for when the user clicks on the items in a list. Incase the list is a mixed list, an amalgamted listener will need to be provided
+     * @param recycledViewPool A RecyclerView.RecycledViewPool to use. This is required if you wish to be efficient when dealing with multiple lists in the same screen, having similar items
+     * @param hasStableIds Whether the list has stable ids or not
+     * @param
+     */
     @JvmStatic
     @BindingAdapter(
         value = [

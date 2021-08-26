@@ -5,6 +5,9 @@ import android.util.TypedValue
 
 object IntExtensions {
 
+    /**
+     * Get the SP value for an integer
+     */
     fun Int.sp(): Float {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_SP,
@@ -13,6 +16,9 @@ object IntExtensions {
         )
     }
 
+    /**
+     * Get the DP value for an integer
+     */
     fun Int.dp(): Float {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,

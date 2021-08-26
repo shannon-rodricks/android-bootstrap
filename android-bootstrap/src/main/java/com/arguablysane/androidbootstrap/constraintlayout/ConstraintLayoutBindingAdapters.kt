@@ -7,6 +7,10 @@ import androidx.databinding.BindingAdapter
 
 object ConstraintLayoutBindingAdapters {
 
+    /**
+     * Set the aspect ratio for a view within a ConstraintLayout
+     * @param ratio The desired aspect ratio (width/height)
+     */
     @JvmStatic
     @BindingAdapter("constraint_ratio")
     fun View.setConstraintRatio(ratio: Float) {

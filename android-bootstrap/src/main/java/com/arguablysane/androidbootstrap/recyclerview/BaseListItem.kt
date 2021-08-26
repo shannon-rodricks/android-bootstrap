@@ -3,7 +3,7 @@ package com.arguablysane.androidbootstrap.recyclerview
 /**
  * A component of the [SimpleListAdapter]
  *
- * This needs to be implemented in item viewmodels that wish to use the adapter
+ * This needs to be implemented in item viewmodels that wish to use [SimpleListAdapter]
  */
 interface BaseListItem {
 
